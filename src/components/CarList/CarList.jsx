@@ -1,7 +1,7 @@
-import CarCard from "../CarCard/CarCard";
-import css from "./CarList.module.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import CarCard from '../CarCard/CarCard';
+import css from './CarList.module.css';
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 const CarList = ({ cars }) => {
   // const [cars, setCars] = useState([]);
@@ -29,7 +29,7 @@ const CarList = ({ cars }) => {
   return (
     <>
       <ul className={css.list}>
-        {cars.map((car) => (
+        {cars.map(car => (
           <CarCard key={car.id} car={car} />
         ))}
       </ul>
