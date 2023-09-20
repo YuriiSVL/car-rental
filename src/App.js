@@ -1,13 +1,13 @@
 // import logo from "./logo.svg";
-import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout/SharedLayout";
-import { lazy } from "react";
-import CarList from "./components/CarList/CarList";
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const Catalog = lazy(() => import("./pages/AllCarsPage/AllCarsPage"));
+import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import { lazy } from 'react';
+// import CarList from "./components/CarList/CarList";
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const Catalog = lazy(() => import('./pages/AllCarsPage/AllCarsPage'));
 const Favorites = lazy(() =>
-  import("./pages/FavoriteCarsPage/FavoriteCarsPage")
+  import('./pages/FavoriteCarsPage/FavoriteCarsPage')
 );
 
 function App() {
