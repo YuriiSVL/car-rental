@@ -14,6 +14,10 @@ const CarCard = ({ car }) => {
     setModalOpen(true);
   };
 
+  const onModalClose = () => {
+    setModalOpen(false);
+  };
+
   const onToFavoriteBtnClick = () => {
     const existingFavoriteCars =
       JSON.parse(localStorage.getItem('favoriteCars')) || [];
@@ -70,7 +74,7 @@ const CarCard = ({ car }) => {
       </button>
       {isModalOpen && (
         <ModalWindow
-          onClick={onToFavoriteBtnClick}
+          onClose={onModalClose}
           id={car.id}
           img={car.img || car.photoLink}
           description={car.description}

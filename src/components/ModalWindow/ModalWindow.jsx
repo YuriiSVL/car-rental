@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { Box, Modal, Backdrop, Fade } from "@mui/material";
-import css from "./ModalWindow.module.css";
-import iconClose from "../../icons/closeModalIcon.svg";
+import { useState } from 'react';
+import { Box, Modal, Backdrop, Fade } from '@mui/material';
+import css from './ModalWindow.module.css';
+import iconClose from '../../icons/closeModalIcon.svg';
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "541px",
-  padding: "40px",
-  bgcolor: "background.paper",
-  borderRadius: "24px",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '541px',
+  padding: '40px',
+  bgcolor: 'background.paper',
+  borderRadius: '24px',
   boxShadow: 24,
-  alightItems: "center",
-  justifyContent: "center",
+  alightItems: 'center',
+  justifyContent: 'center',
 };
 
 export default function ModalWindow({
-  onClick,
+  onClose,
   id,
   img,
   description,
@@ -39,9 +39,10 @@ export default function ModalWindow({
   const [open, setOpen] = useState(true);
   const handleClose = () => {
     setOpen(false);
+    onClose();
   };
 
-  const formatedMileage = mileage.toLocaleString("en-US");
+  const formatedMileage = mileage.toLocaleString('en-US');
 
   return (
     <div>
@@ -49,10 +50,7 @@ export default function ModalWindow({
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
-        onClose={() => {
-          handleClose();
-          onClick();
-        }}
+        onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -109,15 +107,15 @@ export default function ModalWindow({
             <h3 className={css.subtitle}>Rental conditions:</h3>
             <div className={css.conditions}>
               <span className={css.condition}>
-                Minimum age:{" "}
+                Minimum age:{' '}
                 <span className={css.conditionValue}>
-                  {conditions.split("\n")[0].match(/\d+/)}
+                  {conditions.split('\n')[0].match(/\d+/)}
                 </span>
               </span>
-              <span className={css.condition}>{conditions.split("\n")[1]}</span>
-              <span className={css.condition}>{conditions.split("\n")[2]}</span>
+              <span className={css.condition}>{conditions.split('\n')[1]}</span>
+              <span className={css.condition}>{conditions.split('\n')[2]}</span>
               <span className={css.condition}>
-                Mileage:{" "}
+                Mileage:{' '}
                 <span className={css.conditionValue}>{formatedMileage}</span>
               </span>
               <span className={css.condition}>
